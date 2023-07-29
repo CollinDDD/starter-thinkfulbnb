@@ -5,7 +5,7 @@ body {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 400;
   margin: 0 10px 10px 10px;
   text-align: center;
@@ -23,6 +23,8 @@ p {
 
 section {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 section.alternate-background {
@@ -31,7 +33,7 @@ section.alternate-background {
 }
 
 main img {
-  width: 100px;
+  width: 100%;
 }
 
 /* ---  Groups & Items --- */
@@ -48,6 +50,7 @@ main img {
 
 .item-double {
   flex: 2;
+  align-self: center;
 }
 
 /* -------  Navigation ------- */
@@ -64,14 +67,30 @@ header {
   color: #fff;
 }
 
+header nav {
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul {
+  display: flex;
+  padding: 0;
+  
+}
+
 header nav ul li {
   list-style-type: none;
+}
+
+header nav ul li: :last-child {
+  margin-right: 0;
 }
 
 header nav ul li a {
   color: #fff;
   text-decoration: none;
   padding: 0 20px 0 0;
+  
 }
 
 header nav ul li a:hover {
@@ -83,6 +102,14 @@ header nav ul li a:hover {
 form {
   border: 2px solid #ff385c;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+form .input {
+  display: flex;
+  justify-content: space-between;
 }
 
 form label {
@@ -93,6 +120,7 @@ form select,
 form input {
   margin-bottom: 20px;
   width: 180px;
+  align-items:end;
 }
 
 form button {
@@ -117,3 +145,41 @@ footer p {
 }
 
 /* -------  Media Query ------- */
+@media screen and (min-width: 769px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  form .group  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  form .group .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  form button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+  section .group {
+    display: flex;
+    flex-direction: row;
+  }
+  #ideas .group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;    
+    grid-gap: 20px;
+  }
+  #host .group .item {
+    align-self: center;
+  }
+}
